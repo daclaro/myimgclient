@@ -1,26 +1,35 @@
 import * as React from 'react'
 import { Grid, Box, Button } from '@mui/material'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import Typography from '@mui/material/Typography'
 import { getAll, create, update, axios_del } from '../../services/Login'
 import VerticalClassique from './VerticalClassique'
 import Cardinput from '../Cardinput.js'
-
+import TextField from '@mui/material/TextField'
+import { createTheme, ThemeProvider } from '@mui/material'
+import { green, purple } from '@mui/material/colors'
 import mec from '../../images/mec.PNG'
 import cont from '../../images/cont.jpg'
 import taba from '../../images/taba.jpg'
 const TitrerGform1 = (props) => {
+  const theme = createTheme({
+    palette: {
+      primary: purple,
+      secondary: purple,
+    },
+  })
   const {
     register,
     handleSubmit,
     getValues,
+    control,
     formState: { errors },
   } = useForm()
 
   const [gem, setGem] = React.useState([])
   const [nonebutton, setNonebutton] = React.useState(0)
-
+  const errorMe = (errors) => {}
   const onSubmit = async (data) => {
     console.log('my data is', data)
     const generatedImage = await create(data)
@@ -40,30 +49,51 @@ const TitrerGform1 = (props) => {
       </a>
     ))
   }
+  const helper = (errors) => {
+    if (errors.titreName?.type === 'pattern') {
+      return 'Verifier le type du texte.'
+    } else if (errors.titreName?.type === 'required') {
+      return 'Verifier le required du texte.'
+    }
+  }
   return (
-    <Box sx={{ mx: 'auto', backgroundColor: '#111243', width: '85%', my: '0%', pb: '0%' }}>
+    <Box sx={{ mx: 'auto', width: '85%', my: '0%', pb: '0%' }}>
       {' '}
-      <Typography color='#84ffff' sx={{ ml: 5, pt: 2 }} variant='h4' component='h4'>
+      <Typography color='#84ffff' sx={{ ml: 5, pt: 2, textAlign: 'center' }} variant='h4' component='h4'>
         Titrer un plan
       </Typography>
       {generatedImageFunc()}
-      <Typography color='#84ffff' sx={{ ml: 5, pt: 2 }} variant='caption' component='h4'>
-        Tapper le titre
-        <input
-          name='titrename'
-          placeholder='Numero du titre "T1100/21"  ...'
-          accept='image/*'
-          id='titrename'
-          {...register('titreName', {
-            required: true,
-            pattern: {
-              value: /[TR][0-9]+\/[0-9]+/i,
-              message: 'Please enter a valid email',
-            },
-          })}
-        />
-        {errors.titreName && <p>Please check the First Name</p>}
-      </Typography>
+      <Box>
+        <Typography color='#84ffff' sx={{ ml: 5, mr: 5, pt: 2, display: 'flex', alignItems: 'center' }} variant='caption' variant='h7' component='h4'>
+          Tapper le titre :
+          <Controller
+            control={control}
+            name='titrename'
+            render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { invalid, isTouched, isDirty, error }, formState }) => (
+              <TextField
+                {...register('titreName', {
+                  required: true,
+                  pattern: {
+                    value: /[TR][0-9]+\/[0-9]+/i,
+                  },
+                })}
+                error={errors.titreName?.type === 'pattern' || errors.titreName?.type === 'required'}
+                label='T5222/21'
+                color='primary'
+                variant='outlined'
+                helperText={helper(errors)}
+                InputLabelProps={{
+                  style: { color: '#808080' },
+                }}
+                sx={{
+                  '& .MuiInputBase-input': { color: '#fff' },
+                  mx: 5,
+                }}
+              />
+            )}
+          />
+        </Typography>
+      </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2} sx={{ mx: 'auto', width: '90%', my: 3 }}>
