@@ -41,7 +41,7 @@ const TitrerGform1 = (props) => {
       </Typography>
       {generatedImageFunc()}
       <Typography color='#84ffff' sx={{ ml: 5, pt: 2 }} variant='caption' component='h4'>
-        Tapper le titre
+        Taper le titre
         <input
           name='titrename'
           placeholder='Numero du titre "T1100/21"  ...'

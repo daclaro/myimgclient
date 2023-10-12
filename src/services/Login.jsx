@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://myimgdrf.herokuapp.com/api/photos'
+const baseUrl = 'http://127.0.0.1:8000/api/photos'
 
 const getAll = () => {
   const request = axios.get(baseUrl)

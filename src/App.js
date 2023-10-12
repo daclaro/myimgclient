@@ -13,6 +13,7 @@ import Copropriete from './components/Copropriete/Copropriete'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import TitrerG from './components/Classique/TitrerG'
 import TitrerC from './components/Copropriete/TitrerC'
+import Faq from './components/Faq'
 
 function App() {
   return (
@@ -42,6 +43,16 @@ function App() {
                 {' '}
                 <Navbar />
                 <Hero />
+              </>
+            }
+          />
+          <Route
+            path='/faq'
+            element={
+              <>
+                {' '}
+                <Navbar />
+                <Faq />
               </>
             }
           />

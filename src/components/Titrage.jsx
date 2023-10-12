@@ -10,12 +10,12 @@ const Titrage = () => {
   return (
     <div>
       <Grid container spacing={2} sx={{ mx: 'auto', width: '40%', mt: 3 }}>
-        <Grid item xs={12} lg={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Cardind image={Mec} alt='classique' name='Classique' desc='Pour titrer les calcul  de contenances , les tableau a , plans , chemises  ' />
+        <Grid item xs={12} lg={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Cardind image={Mec} alt='classique' name='Classique' nameLINK='/Classique/individuel/titrer' desc='Pour titrer les calcul  de contenances , les tableau a , plans , chemises  ' />
         </Grid>
 
-        <Grid item xs={12} lg={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Cardind image={Copro} alt='Copropriete' name='Copropriete' desc='Copropriete' />
+        <Grid item xs={12} lg={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Cardind image={Copro} alt='Copropriete' name='Copropriete' nameLINK='/copropriete/individuel/titrer' desc='pour titrer les plans de copropriete' />
         </Grid>
       </Grid>
     </div>

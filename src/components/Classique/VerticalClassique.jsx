@@ -95,7 +95,7 @@ export default function VerticalClassique(props) {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant='h6' noWrap component='div' color='#84ffff'>
+          <Typography variant='h6' component='div' color='#84ffff' align='center'>
             Titrage Classique
           </Typography>
         </Toolbar>

@@ -20,10 +20,9 @@ export default function Cardind(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button component={Link} to={`${props.name.toLowerCase()}`} size='small'>
+        <Button component={Link} to={`${props.nameLINK.toLowerCase()}`} size='small'>
           Commencer
         </Button>
-        <Button size='small'>Learn More</Button>
       </CardActions>
     </Card>
   )

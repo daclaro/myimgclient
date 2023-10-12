@@ -41,7 +41,7 @@ const TitrerGform1 = (props) => {
     ))
   }
   return (
-    <Box sx={{ mx: 'auto', backgroundColor: '#111243', width: '85%', my: '8%', pb: '5%' }}>
+    <Box sx={{ mx: 'auto', backgroundColor: '#111243', width: '85%', my: '0%', pb: '0%' }}>
       {' '}
       <Typography color='#84ffff' sx={{ ml: 5, pt: 2 }} variant='h4' component='h4'>
         Titrer un plan

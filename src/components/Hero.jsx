@@ -24,11 +24,14 @@ const Hero = () => {
       </ThemeProvider>
       <Typography color='#84ffff' sx={{ mt: 2, fontSize: 18, fontWeight: 1 }} align='center' variant='subtitle2' component='h2'>
         Cet outil permet de faire l'indexation des pieces, <br />
-        ainsi que le titrage automatique des pieces.
+        ainsi que le titrage automatique des pieces. <br />
+      </Typography>
+      <Typography color='#84ffff' sx={{ mt: 2, fontSize: 18, fontWeight: 1, color: 'info.light' }} align='center' variant='subtitle2' component='h2'>
+        Etabli par
       </Typography>
       <Grid container spacing={2} sx={{ mx: 'auto', width: '24%', mt: 2 }}>
         <Grid item xs={12} lg={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Button variant='contained' sx={{ px: { xs: 17, lg: 4 }, textTransform: 'none' }}>
+          <Button href='titrage' variant='contained' sx={{ px: { xs: 17, lg: 4 }, textTransform: 'none' }}>
             Titrage
           </Button>
         </Grid>

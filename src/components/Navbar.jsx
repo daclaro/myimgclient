@@ -15,7 +15,7 @@ import { ReactComponent as Logoml } from '../images/logoml.svg'
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false)
-  const ExpandableMenu = ['Titrage', 'Indexation', 'Ressources', 'FAQ']
+  const ExpandableMenu = ['Titrage', 'Indexation', 'FAQ']
   const ButtonVariant = ['text', 'contained', 'text', 'outlined']
 
   const handleToggle = () => {
