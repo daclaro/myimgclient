@@ -17,7 +17,7 @@ import Faq from './components/Faq'
 
 function App() {
   return (
-    <Box sx={{ backgroundImage: 'url(' + Mysvg + ')', height: '2530px', width: '100%', backgroundRepeat: 'no-repeat', backgroundColor: '#151719' }}>
+    <Box sx={{ backgroundImage: 'url(' + Mysvg + ')', height: '100%', width: '100%', backgroundRepeat: 'no-repeat', backgroundColor: '#151719' }}>
       <Router>
         <Routes>
           <Route path='/titrage/classique' element={<Classique />}></Route>
@@ -26,11 +26,11 @@ function App() {
           <Route
             path='/titrage'
             element={
-              <>
+              <Box sx={{minHeight:'100vh'}}>
                 {' '}
                 <Navbar />
                 <Titrage />
-              </>
+              </Box>
             }
           />
           <Route path='/indexation' element={<Indexation />} />
@@ -39,11 +39,11 @@ function App() {
           <Route
             path='/'
             element={
-              <>
+              <Box sx={{height:'100vh'}}>
                 {' '}
                 <Navbar />
                 <Hero />
-              </>
+              </Box>
             }
           />
           <Route

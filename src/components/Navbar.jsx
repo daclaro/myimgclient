@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import { ReactComponent as Logoml } from '../images/logoml.svg'
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [open, setOpen] = React.useState(false)
   const ExpandableMenu = ['Titrage', 'Indexation', 'FAQ']
   const ButtonVariant = ['text', 'contained', 'text', 'outlined']
@@ -31,7 +31,7 @@ const Navbar = () => {
           </MenuItem>
           {ExpandableMenu.map((setting, id) => (
             <MenuItem key={setting}>
-              <Button href={setting.toLowerCase()} variant={ButtonVariant[id]} sx={{ textTransform: 'none', fontSize: '1rem' }}>
+              <Button href={'../../' + setting.toLowerCase()} variant={ButtonVariant[id]} sx={{ textTransform: 'none', fontSize: '1rem' }}>
                 {setting}
               </Button>
             </MenuItem>
@@ -57,7 +57,7 @@ const Navbar = () => {
             >
               <Box>
                 {ExpandableMenu.map((setting) => (
-                  <MenuItem key={setting} component={Link} to={setting}>
+                  <MenuItem key={setting} component={Link} to={props.order === '1' ? '/eee' : setting}>
                     {setting}
                   </MenuItem>
                 ))}

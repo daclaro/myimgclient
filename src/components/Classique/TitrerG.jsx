@@ -25,7 +25,7 @@ const TitrerG = () => {
   return (
     <Box>
       {' '}
-      <Navbar />
+      <Navbar order='1' />
       {PageDisplay()}
     </Box>
   )

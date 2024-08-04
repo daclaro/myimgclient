@@ -13,7 +13,7 @@ const Hero = () => {
   })
 
   return (
-    <Box sx={{ mt: 6 }}>
+    <Box sx={{ }}>
       <ThemeProvider theme={theme}>
         <Typography color='#84ffff' align='center' variant='h3'>
           Titrage &{' '}

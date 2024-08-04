@@ -1,10 +1,35 @@
 import axios from 'axios'
-const baseUrl = 'http://127.0.0.1:8000/api/photos'
+const baseUrl = 'http://62.169.30.172/api/photos'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
   return request.then((response) => response.data)
 }
+const createInd = async (newObject) => {
+  const uploadData = new FormData()
+  if (newObject.piecePath[0] !== undefined) {
+    uploadData.append('PiecePath', newObject.piecePath[0])
+    console.log('aaaaaaaa')
+  }
+  const headers = {
+    'Content-Type': 'multipart/form-data',
+  }
+
+  let responseArray = []
+  console.log('FDGFGFDA', newObject)
+
+  try {
+    const piecereq = await axios.post(baseUrl + '/uploadInd/', uploadData, {
+      headers: headers,
+    })
+    responseArray.push(piecereq.data)
+  } catch (error) {
+    console.error(error)
+  }
+
+  return responseArray
+}
+
 
 const create = async (newObject) => {
   const uploadData = new FormData()
@@ -20,7 +45,10 @@ const create = async (newObject) => {
     uploadData.append('TabPath', newObject.taba[0])
     console.log('aaaaaaaa')
   }
-
+  if (newObject.piecePath[0] !== undefined) {
+    uploadData.append('PiecePath', newObject.piecePath[0])
+    console.log('aaaaaaaa')
+  }
   if (newObject.hasOwnProperty('titreName')) {
     uploadData.append('namePath', newObject.titreName)
   }
@@ -29,7 +57,7 @@ const create = async (newObject) => {
   }
 
   let responseArray = []
-  console.log('FUCKYOUNIGGA', newObject)
+  console.log('FDGFGFDA', newObject)
 
   try {
     const planreq = await axios.post(baseUrl + '/uploadplan/', uploadData, {
@@ -54,6 +82,14 @@ const create = async (newObject) => {
       headers: headers,
     })
     responseArray.push(tabreq.data)
+  } catch (error) {
+    console.error(error)
+  }
+  try {
+    const piecereq = await axios.post(baseUrl + '/postInd/', uploadData, {
+      headers: headers,
+    })
+    responseArray.push(piecereq.data)
   } catch (error) {
     console.error(error)
   }
@@ -109,4 +145,4 @@ const axios_del = (id) => {
   return request.then((response) => response.data)
 }
 
-export { getAll, create, update, axios_del, createcop }
+export { getAll, create, update, axios_del, createcop,createInd }
