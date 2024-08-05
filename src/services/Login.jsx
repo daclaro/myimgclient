@@ -45,10 +45,7 @@ const create = async (newObject) => {
     uploadData.append('TabPath', newObject.taba[0])
     console.log('aaaaaaaa')
   }
-  if (newObject.piecePath[0] !== undefined) {
-    uploadData.append('PiecePath', newObject.piecePath[0])
-    console.log('aaaaaaaa')
-  }
+
   if (newObject.hasOwnProperty('titreName')) {
     uploadData.append('namePath', newObject.titreName)
   }
